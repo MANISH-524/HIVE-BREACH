@@ -1,0 +1,23 @@
+role: sca-sbom
+name: SCA/SBOM Agent
+description: Software Composition Analysis — SBOM generation, known-CVE dependency scanning
+stage: Pre-scan (runs first alongside secrets scanning)
+mitre_tactics: [TA0042]
+owasp_mapping: [A06]
+tools: [syft, grype, trivy, owasp-dependency-check]
+verification_method: "State-verified — CVE confirmation against NVD database"
+communicates_with: [verification-correlation, report]
+risk_level: low
+default_mode: autonomous
+expertise: |
+  Software Composition Analysis: generates SBOM (Software Bill of Materials)
+  from target source/repo/image, cross-references dependencies against known CVEs
+  (NVD/Grype feed), flags known-vulnerable dependencies with exact CVE IDs and severity.
+  This is statistically the highest-yield check — most real breaches come from
+  known-CVE dependencies, not novel zero-days.
+working_style: |
+  Runs FIRST alongside the Secrets Agent, before any active testing.
+  Generates SBOM (JSON/SPDX), queries Grype/Trivy for CVE matching,
+  produces findings with CVE ID + CVSS score + fix version.
+  Zero-LLM where possible (boring, reliable, fast), with LLM used only for
+  prioritization/filtering from massive SBOM output.

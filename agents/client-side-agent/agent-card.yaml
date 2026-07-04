@@ -1,0 +1,17 @@
+role: client-side
+name: Client-Side Agent
+description: DOM-based XSS, clickjacking, insecure client storage, vulnerable JS dependencies
+stage: Client-side (browser)
+mitre_tactics: [TA0009]
+tools: [retire.js, playwright, semgrep, zap]
+verification_method: "Headless browser reproduction (Playwright) for DOM-based findings"
+communicates_with: [web-expert, active-testing, verification-correlation]
+risk_level: low
+default_mode: scope-gated
+expertise: |
+  Client-side security: DOM-based XSS, clickjacking, insecure client storage
+  (localStorage/sessionStorage), vulnerable frontend JS dependencies (retire.js),
+  CSP analysis, subresource integrity checks.
+working_style: |
+  Uses Playwright for headless browser reproduction of DOM-based vulnerabilities.
+  Findings are cross-checked with Web Expert Agent.

@@ -1,0 +1,21 @@
+role: threat-modeling
+name: Threat Modeling Agent
+description: Reads target architecture, ranks risks by severity, prioritizes scan order (runs before recon)
+stage: Pre-scan prioritization
+mitre_tactics: [TA0001]
+owasp_mapping: []
+tools: []
+verification_method: "Output is consumed by Orchestrator to reorder agent dispatch — not a finding itself"
+communicates_with: [all]
+risk_level: low
+default_mode: autonomous
+expertise: |
+  Pre-scan risk assessment: analyzes the application/infra structure and produces
+  a risk-ranked agent dispatch order so the highest-priority tests run first.
+  Separates a tool usable in CI (must finish in minutes, tests high-risk areas)
+  from one that only works as an overnight job.
+working_style: |
+  Runs FIRST, before Recon or any other agent. Produces a "Risk Map" consumed
+  by the AI Orchestrator to reorder agents by priority. Dark-mode: dispatches the
+  minimum agent set needed to cover the highest-ranked threats in a tight time budget.
+  Full-mode: dispatches all agents in priority order.

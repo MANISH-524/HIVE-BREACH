@@ -1,0 +1,29 @@
+{
+  "entries": [
+    {"name": "nmap", "category": "recon", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Network discovery and security scanning", "stage": "Recon"},
+    {"name": "masscan", "category": "recon", "installed": false, "osCompatibility": ["linux", "macos"], "description": "Mass IP port scanner", "stage": "Recon"},
+    {"name": "amass", "category": "recon", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Subdomain enumeration and attack surface mapping", "stage": "Recon"},
+    {"name": "subfinder", "category": "recon", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Passive subdomain discovery", "stage": "Recon"},
+    {"name": "httpx", "category": "recon", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "HTTP probing toolkit", "stage": "Recon"},
+    {"name": "ffuf", "category": "recon", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Fast web fuzzer for directory/path discovery", "stage": "Recon"},
+    {"name": "gobuster", "category": "recon", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Directory/file & DNS busting", "stage": "Recon"},
+    {"name": "wafw00f", "category": "recon", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "WAF detection fingerprinting", "stage": "Recon"},
+    {"name": "whatweb", "category": "recon", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Web technology stack fingerprinting", "stage": "Recon"},
+    {"name": "sqlmap", "category": "web", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Automated SQL injection detection and exploitation", "stage": "Analysis"},
+    {"name": "hydra", "category": "credential", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Online password cracking", "stage": "Weaponization"},
+    {"name": "hashcat", "category": "credential", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "GPU-accelerated hash cracking", "stage": "Weaponization"},
+    {"name": "john", "category": "credential", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "John the Ripper password cracker", "stage": "Weaponization"},
+    {"name": "metasploit", "category": "exploit", "installed": false, "osCompatibility": ["linux", "macos"], "description": "Exploit development and execution framework", "stage": "Weaponization"},
+    {"name": "prowler", "category": "cloud", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "AWS security posture assessment", "stage": "Cloud"},
+    {"name": "scoutsuite", "category": "cloud", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Multi-cloud security auditing", "stage": "Cloud"},
+    {"name": "trivy", "category": "cloud", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Container and dependency vulnerability scanner", "stage": "Cloud"},
+    {"name": "bloodhound", "category": "network", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Active Directory attack-path mapping", "stage": "Post-Exploitation"},
+    {"name": "impacket", "category": "network", "installed": false, "osCompatibility": ["linux", "macos"], "description": "AD protocol manipulation and lateral movement", "stage": "Post-Exploitation"},
+    {"name": "mobsf", "category": "mobile", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Mobile security framework for static/dynamic analysis", "stage": "Mobile"},
+    {"name": "frida", "category": "mobile", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Dynamic instrumentation for mobile apps", "stage": "Mobile"},
+    {"name": "aircrack-ng", "category": "wireless", "installed": false, "osCompatibility": ["linux", "macos"], "description": "Wireless network security assessment", "stage": "Wireless"},
+    {"name": "git-dumper", "category": "recon", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Dump exposed .git repositories", "stage": "Recon"},
+    {"name": "gitleaks", "category": "secrets", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Secrets scanning for git repos", "stage": "Recon"},
+    {"name": "trufflehog", "category": "secrets", "installed": false, "osCompatibility": ["linux", "macos", "windows"], "description": "Secrets scanning across git history", "stage": "Recon"}
+  ]
+}

@@ -1,0 +1,18 @@
+role: wireless
+name: Wireless Agent
+description: Wireless/RF security testing (optional, separate RoE required)
+stage: Physical/RF
+mitre_tactics: [TA0043]
+tools: [aircrack-ng, kismet, wifite, reaver]
+verification_method: "Physical proximity required — sandbox simulation only"
+communicates_with: [verification-correlation, network-expert]
+risk_level: high
+default_mode: requires-roe
+expertise: |
+  Wireless security: WPA/WPA2 cracking (aircrack-ng), wardriving (Kismet),
+  WPS pin attacks (Reaver), evil twin attacks. Requires physical proximity.
+working_style: |
+  **Optional agent** — not included in default scans.
+  Requires a separate RoE clause covering physical proximity and
+  spectrum/RF legal considerations (FCC/spectrum regulations vary by jurisdiction).
+  Default: disabled.

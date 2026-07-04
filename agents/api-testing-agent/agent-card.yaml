@@ -1,0 +1,16 @@
+role: api-testing
+name: API Testing Agent
+description: API security testing — broken object-level auth, excessive data exposure, GraphQL injection
+stage: Application-side
+mitre_tactics: [TA0001, TA0002]
+tools: [schemathesis, graphql-cop, kiterunner, arjun, curl]
+verification_method: "Cross-check with Active Testing Agent replay"
+communicates_with: [web-expert, active-testing, verification-correlation]
+risk_level: medium
+default_mode: scope-gated
+expertise: |
+  API security: REST API fuzzing, GraphQL injection, parameter discovery,
+  broken object-level authorization, mass assignment, rate limiting issues.
+working_style: |
+  Works alongside Web Expert. Focuses specifically on API endpoints
+  (REST, GraphQL, SOAP). Reports partial findings to the bus.

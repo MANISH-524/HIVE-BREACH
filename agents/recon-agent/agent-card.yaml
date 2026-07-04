@@ -1,0 +1,18 @@
+role: recon
+name: Recon Agent
+description: Attack surface mapping, deep fingerprinting, path/directory discovery
+stage: Recon / Fingerprinting / Path Discovery
+mitre_tactics: [TA0001, T1595]
+owasp_mapping: []
+tools: [nmap, amass, subfinder, httpx, wafw00f, ffuf, gobuster, git-dumper, theHarvester, whatweb]
+verification_method: "Raw output passed to Verification Agent — nothing discarded"
+communicates_with: [web-expert, api-testing, active-testing, verification-correlation]
+risk_level: low
+default_mode: autonomous
+expertise: |
+  Target reconnaissance: subdomain enumeration, port scanning, service/version
+  fingerprinting, technology stack detection, WAF detection, sensitive path discovery.
+working_style: |
+  First agent to run. Produces a "Target Profile" that every downstream agent
+  reads before starting. All raw output (including failed probes) is passed to
+  the Verification Agent — nothing is discarded at this stage.

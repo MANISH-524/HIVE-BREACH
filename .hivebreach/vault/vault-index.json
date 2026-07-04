@@ -1,0 +1,26 @@
+[
+  {
+    "id": "e20a2e23-3982-4c60-8ba4-904187c8b38f",
+    "findingId": "finding-123",
+    "encryptedValue": "02071b4eef96fda094bf834d70dda731:0d79c51a02b518a7f2b77902295733866d2049f857bcbfc040c064e702e32b46",
+    "source": "secrets-scanning",
+    "retentionExpiry": 1783151002546,
+    "createdAt": "2026-07-04T06:43:22.546Z"
+  },
+  {
+    "id": "bca54a48-74bd-4dc9-997b-fc87ea9a5a3c",
+    "findingId": "finding-123",
+    "encryptedValue": "a4d292b7b1f1b988b0bfb8e95833f885:d1a0d5e2e771f7c6055cef9c902660cc33014113df9e4c9f817b576cce709e03",
+    "source": "secrets-scanning",
+    "retentionExpiry": 1783151184285,
+    "createdAt": "2026-07-04T06:46:24.285Z"
+  },
+  {
+    "id": "c13633a6-ddb5-49d0-a988-76c1fb1beb48",
+    "findingId": "f-id",
+    "encryptedValue": "3386f9311d3931e787ecf0bdb2d3b5c7:844e54b11247fe0a077b462babdd2de9",
+    "source": "agent",
+    "retentionExpiry": 1783336805471,
+    "createdAt": "2026-07-04T11:20:05.471Z"
+  }
+]

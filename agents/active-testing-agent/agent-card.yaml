@@ -1,0 +1,16 @@
+role: active-testing
+name: Active Testing Agent
+description: Burp-MCP + curl + ZAP active request crafting and replay
+stage: Analysis / Validation
+mitre_tactics: [TA0002, TA0009]
+tools: [burp-mcp, curl, zap, caido]
+verification_method: "Replays candidate exploits from other agents in sandbox"
+communicates_with: [web-expert, api-testing, cloud-expert, verification-correlation]
+risk_level: medium
+default_mode: scope-gated
+expertise: |
+  Active request crafting: Burp Suite via MCP for structured request/response
+  access, curl for quick manual-style verification, ZAP for automated active scanning.
+working_style: |
+  Receives leads from Web Expert and API Testing Agent, actively replays them
+  against the target (within scope limits), and returns validated results.

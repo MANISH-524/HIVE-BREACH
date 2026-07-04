@@ -1,0 +1,15 @@
+role: server-side
+name: Server-Side Agent
+description: Server/infra vulnerability discovery (TLS, exposed services, outdated daemons)
+stage: Server / Infra
+mitre_tactics: [TA0001, T1595]
+tools: [nmap, testssl.sh, nikto, greenbone, metasploit]
+verification_method: "Exploit-verified track for service vulns, state-verified for config"
+communicates_with: [network-expert, exploit-poc, verification-correlation]
+risk_level: medium
+default_mode: scope-gated
+expertise: |
+  Server-side infrastructure: exposed service discovery, TLS/SSL misconfiguration,
+  outdated daemon identification, default credentials, CVE matching to service versions.
+working_style: |
+  Works alongside Recon Agent's fingerprinting output for version-specific CVE matching.

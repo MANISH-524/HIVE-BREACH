@@ -1,0 +1,29 @@
+{
+  "llm": {
+    "provider": "ollama",
+    "model": "qwen2.5",
+    "baseUrl": "http://localhost:11434",
+    "temperature": 0.3,
+    "maxTokens": 4096
+  },
+  "sandbox": {
+    "enabled": true,
+    "image": "hivebreach/sandbox:latest",
+    "memoryLimit": "2g",
+    "cpuLimit": "1.0",
+    "networkEnabled": true,
+    "cleanupOnExit": true
+  },
+  "defaultScope": {
+    "authorizedTargets": [],
+    "allowedTechniques": [],
+    "maxConcurrentRequests": 5,
+    "rateLimitPerSecond": 10,
+    "timeBudgetMinutes": 60,
+    "allowCredentialAttacks": false,
+    "wirelessTestingAuthorized": false
+  },
+  "dataDir": ".hivebreach",
+  "logLevel": "info",
+  "telemetryEnabled": false
+}

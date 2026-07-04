@@ -1,0 +1,40 @@
+import { registerAgent } from "./registry.js";
+import { ReconAgent } from "./implementations/recon-agent.js";
+import { WebExpertAgent } from "./implementations/web-expert-agent.js";
+import { ApiTestingAgent } from "./implementations/api-testing-agent.js";
+import { ActiveTestingAgent } from "./implementations/active-testing-agent.js";
+import { CloudExpertAgent } from "./implementations/cloud-expert-agent.js";
+import { NetworkExpertAgent } from "./implementations/network-expert-agent.js";
+import { ServerSideAgent } from "./implementations/server-side-agent.js";
+import { ClientSideAgent } from "./implementations/client-side-agent.js";
+import { MobileAppAgent } from "./implementations/mobile-app-agent.js";
+import { PasswordCredentialAgent } from "./implementations/password-credential-agent.js";
+import { WirelessAgent } from "./implementations/wireless-agent.js";
+import { ExploitPocAgent } from "./implementations/exploit-poc-agent.js";
+import { VerificationCorrelationAgent } from "./implementations/verification-correlation-agent.js";
+import { CleanupTeardownAgent } from "./implementations/cleanup-teardown-agent.js";
+import { ReportAgent } from "./implementations/report-agent.js";
+import { ScaSbomAgent } from "./implementations/sca-sbom-agent.js";
+import { ThreatModelingAgent } from "./implementations/threat-modeling-agent.js";
+import { SecretsScanningAgent } from "./implementations/secrets-scanning-agent.js";
+
+export function registerAllAgents(): void {
+  registerAgent("recon", ReconAgent);
+  registerAgent("web-expert", WebExpertAgent);
+  registerAgent("api-testing", ApiTestingAgent);
+  registerAgent("active-testing", ActiveTestingAgent);
+  registerAgent("cloud-expert", CloudExpertAgent);
+  registerAgent("network-expert", NetworkExpertAgent);
+  registerAgent("server-side", ServerSideAgent);
+  registerAgent("client-side", ClientSideAgent);
+  registerAgent("mobile-app", MobileAppAgent);
+  registerAgent("password-credential", PasswordCredentialAgent);
+  registerAgent("wireless", WirelessAgent);
+  registerAgent("exploit-poc", ExploitPocAgent);
+  registerAgent("verification-correlation", VerificationCorrelationAgent);
+  registerAgent("cleanup-teardown", CleanupTeardownAgent);
+  registerAgent("report", ReportAgent);
+  registerAgent("sca-sbom", ScaSbomAgent);
+  registerAgent("threat-modeling", ThreatModelingAgent);
+  registerAgent("secrets-scanning", SecretsScanningAgent);
+}

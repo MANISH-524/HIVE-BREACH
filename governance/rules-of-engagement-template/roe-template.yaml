@@ -1,0 +1,66 @@
+# HiveBreach Rules of Engagement (RoE) Template
+# This is a HUMAN-AUTHORED document signed off before any scan runs.
+# The deterministic scope gate enforces this — it does NOT generate it.
+
+engagement:
+  client: "CLIENT_NAME"
+  date: "YYYY-MM-DD"
+  authorized_by: "NAME_OF_SIGNING_AUTHORITY"
+  engagement_type: "penetration-testing" # or "vulnerability-scan", "compliance-audit"
+
+scope:
+  authorized_targets:
+    - "example.com"
+    - "*.example.com"
+    - "10.0.0.0/24"
+  excluded_targets: []  # IPs/domains to NEVER touch, even if discovered during recon
+
+  # Authorized headers/tokens injected into every request (proof of authorization)
+  authorized_headers:
+    X-HiveBreach-Auth: "ENGAGEMENT_TOKEN_HERE"
+
+  allowed_techniques:
+    - "reconnaisance"
+    - "web-application-testing"
+    - "api-testing"
+    - "cloud-security-assessment"
+    - "network-security"
+  disallowed_techniques:
+    - "physical-attacks"
+    - "social-engineering-without-preapproved-accounts"
+
+rate_limits:
+  max_concurrent_requests: 5
+  rate_limit_per_second: 10
+  time_budget_minutes: 60
+  max_requests_per_scan: 10000
+
+credential_testing:
+  allow_credential_attacks: false  # NEVER set to true on a live production target without EXPLICIT approval
+  dry_run_only: true
+  rate_limit_credential_attempts: 3
+
+wireless_testing:
+  wireless_testing_authorized: false  # Requires separate jurisdiction-specific clause
+  physical_proximity_authorized: false
+
+reporting:
+  output_format: "json"  # or "markdown", "html"
+  include_poc: true
+  redact_secrets: true  # NEVER set to false on a client report
+  include_mitre_mapping: true
+  include_owasp_mapping: true
+  include_cwe_cvss: true
+  compliance_mapping: ["pci-dss", "iso-27001", "soc2"]
+
+legal:
+  jurisdiction: "US"  # Laws vary by country — wireless/RF especially
+  disclaimer_required: true
+  authorized_personnel: ["OPERATOR_NAME_1", "OPERATOR_NAME_2"]
+  audit_trail_enabled: true
+  retention_days: 30  # Delete all finding data after this period
+
+# SIGNATURES BELOW THIS LINE
+# ---
+# Operator: _____________________  Date: __________
+# Client Authorizing Officer: _____________________  Date: __________

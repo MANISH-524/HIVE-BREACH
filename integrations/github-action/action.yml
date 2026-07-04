@@ -1,0 +1,65 @@
+name: HiveBreach Security Scan
+description: Autonomous multi-agent AI penetration testing — run on PR or schedule
+
+inputs:
+  target:
+    description: Target URL/domain/repo to scan
+    required: true
+  mode:
+    description: Scan mode — "ci" (fast diff-only) or "deep" (full exhaustive)
+    required: false
+    default: ci
+  output:
+    description: Output path for the report
+    required: false
+    default: hivebreach-report.json
+  config:
+    description: Path to hivebreach.config.json
+    required: false
+  roe:
+    description: Path to RoE (rules-of-engagement) file
+    required: false
+outputs:
+  report:
+    description: Path to generated report
+    value: ${{ steps.scan.outputs.report }}
+  findings_critical:
+    description: Number of critical findings
+    value: ${{ steps.scan.outputs.critical }}
+  findings_high:
+    description: Number of high findings
+    value: ${{ steps.scan.outputs.high }}
+runs:
+  using: composite
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    - name: Install HiveBreach
+      shell: bash
+      run: |
+        if [ -f package.json ]; then
+          npm ci
+        fi
+
+    - name: Run HiveBreach Scan
+      id: scan
+      shell: bash
+      run: |
+        node dist/cli/index.js scan ${{ inputs.target }} \
+          --mode ${{ inputs.mode }} \
+          --output ${{ inputs.output }} \
+          ${{ inputs.config && format('--config {0}', inputs.config) || '' }}
+
+    - name: Upload Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: hivebreach-report
+        path: ${{ inputs.output }}
+
+branding:
+  icon: shield
+  color: green
